@@ -1,0 +1,302 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Suleman Shahzad — Graphic Designer Portfolio">
+  <title>Suleman Shahzad | Graphic Designer</title>
+  <style>
+    :root{
+      --bg:#080a09; --card:#101311; --text:#f5f7f5; --muted:#a5aca7;
+      --green:#39d353; --line:#26302a; --max:1150px;
+    }
+    *{box-sizing:border-box;margin:0;padding:0}
+    html{scroll-behavior:smooth}
+    body{font-family:Arial,Helvetica,sans-serif;background:var(--bg);color:var(--text);line-height:1.6}
+    a{text-decoration:none;color:inherit}
+    .container{width:min(92%,var(--max));margin:auto}
+    header{position:fixed;top:0;left:0;right:0;z-index:100;background:rgba(8,10,9,.88);backdrop-filter:blur(14px);border-bottom:1px solid rgba(57,211,83,.12)}
+    nav{height:74px;display:flex;align-items:center;justify-content:space-between}
+    .logo{font-size:20px;font-weight:800;letter-spacing:.5px}
+    .logo span{color:var(--green)}
+    .nav-links{display:flex;gap:28px;list-style:none}
+    .nav-links a{font-size:13px;color:#d9dedb;transition:.25s}
+    .nav-links a:hover{color:var(--green)}
+    .menu{display:none;background:none;border:1px solid var(--line);color:white;padding:8px 10px;border-radius:8px}
+    .hero{min-height:100vh;display:grid;place-items:center;padding:130px 0 70px;background:radial-gradient(circle at 75% 35%,rgba(57,211,83,.12),transparent 30%),linear-gradient(135deg,#080a09,#0d110e)}
+    .hero-grid{display:grid;grid-template-columns:1.1fr .9fr;gap:55px;align-items:center}
+    .eyebrow{color:var(--green);font-weight:700;letter-spacing:3px;text-transform:uppercase;font-size:13px;margin-bottom:14px}
+    h1{font-size:clamp(48px,7vw,88px);line-height:.95;letter-spacing:-3px}
+    h1 span{color:var(--green)}
+    .tagline{font-size:22px;margin:22px 0 12px}
+    .hero p{color:var(--muted);max-width:590px}
+    .buttons{display:flex;gap:14px;margin-top:30px;flex-wrap:wrap}
+    .btn{padding:13px 22px;border-radius:8px;border:1px solid var(--green);font-weight:700;font-size:14px}
+    .btn.primary{background:var(--green);color:#061007}
+    .btn.secondary{background:transparent}
+    .visual{min-height:430px;border:1px solid var(--line);border-radius:24px;background:linear-gradient(145deg,#131814,#0a0c0b);position:relative;overflow:hidden;display:grid;place-items:center}
+    .visual::before{content:"";position:absolute;width:280px;height:280px;border:45px solid rgba(57,211,83,.15);border-radius:50%;right:-70px;top:-60px}
+    .visual-card{width:72%;aspect-ratio:4/5;border-radius:16px;background:#171c18;border:1px solid #344137;display:flex;flex-direction:column;justify-content:flex-end;padding:28px;position:relative;box-shadow:0 25px 70px rgba(0,0,0,.5)}
+    .visual-card .mark{font-size:72px;font-weight:900;color:var(--green);line-height:1}
+    .visual-card h3{font-size:27px;margin-top:10px}
+    .visual-card small{color:var(--muted)}
+    section{padding:95px 0}
+    .section-head{text-align:center;margin-bottom:45px}
+    .section-head .eyebrow{margin-bottom:7px}
+    .section-head h2{font-size:38px}
+    .about-grid{display:grid;grid-template-columns:.8fr 1.2fr;gap:55px;align-items:center}
+    .about-box{min-height:350px;border-radius:20px;border:1px solid var(--line);background:linear-gradient(145deg,#121713,#0b0e0c);display:grid;place-items:center}
+    .about-box .initial{font-size:130px;font-weight:900;color:var(--green)}
+    .about-text h3{font-size:32px;margin-bottom:12px}
+    .about-text p{color:var(--muted);margin-bottom:20px}
+    .facts{display:grid;grid-template-columns:repeat(2,1fr);gap:12px}
+    .fact{border:1px solid var(--line);padding:14px;border-radius:10px;background:#0c0f0d}
+    .fact b{display:block;font-size:13px;color:var(--green);margin-bottom:3px}
+    .skills{display:grid;grid-template-columns:repeat(3,1fr);gap:18px}
+    .skill,.service{border:1px solid var(--line);border-radius:14px;padding:25px;background:var(--card);transition:.25s}
+    .skill:hover,.service:hover{transform:translateY(-5px);border-color:rgba(57,211,83,.55)}
+    .icon{font-size:30px;color:var(--green);margin-bottom:12px}
+    .skill h3,.service h3{font-size:18px;margin-bottom:7px}
+    .skill p,.service p{color:var(--muted);font-size:14px}
+    .portfolio{display:grid;grid-template-columns:repeat(3,1fr);gap:18px}
+    .project{aspect-ratio:1/1;overflow:hidden;border-radius:14px;border:1px solid var(--line);background:#121613;position:relative;display:flex;align-items:flex-end;padding:22px}
+    .project:nth-child(1){background:linear-gradient(135deg,#17351d,#0e1510)}
+    .project:nth-child(2){background:linear-gradient(135deg,#3a2411,#15100a)}
+    .project:nth-child(3){background:linear-gradient(135deg,#172c3a,#0b1218)}
+    .project:nth-child(4){background:linear-gradient(135deg,#322a12,#151309)}
+    .project:nth-child(5){background:linear-gradient(135deg,#25252c,#0f1013)}
+    .project:nth-child(6){background:linear-gradient(135deg,#102d3c,#091215)}
+    .project::after{content:"";position:absolute;inset:0;background:linear-gradient(transparent 40%,rgba(0,0,0,.85))}
+    .project-content{position:relative;z-index:2}
+    .project-content small{color:var(--green);font-weight:700}
+    .project-content h3{font-size:22px}
+    .services{display:grid;grid-template-columns:repeat(4,1fr);gap:18px}
+    .quote{padding:70px 20px;text-align:center;background:#0d110e;border-top:1px solid var(--line);border-bottom:1px solid var(--line)}
+    .quote p{font-size:28px;max-width:760px;margin:auto;font-weight:700}
+    .quote span{color:var(--green)}
+    .contact{display:grid;grid-template-columns:1fr 1fr;gap:35px}
+    .contact-info{border:1px solid var(--line);border-radius:16px;padding:30px;background:var(--card)}
+    .contact-info p{color:var(--muted);margin:12px 0 25px}
+    .contact-item{padding:13px 0;border-bottom:1px solid var(--line)}
+    .contact-item:last-child{border:0}
+    .contact-item b{display:block;color:var(--green);font-size:12px;text-transform:uppercase;letter-spacing:1px}
+    form{display:grid;gap:14px}
+    input,textarea{width:100%;background:#0d110e;border:1px solid var(--line);color:white;padding:14px;border-radius:9px;outline:none}
+    input:focus,textarea:focus{border-color:var(--green)}
+    textarea{min-height:160px;resize:vertical}
+    footer{border-top:1px solid var(--line);padding:25px 0;color:var(--muted);font-size:13px}
+    .footer-inner{display:flex;justify-content:space-between;gap:15px;flex-wrap:wrap}
+
+    body.locked{overflow:hidden}
+    .login-screen{position:fixed;inset:0;z-index:1000;background:radial-gradient(circle at 50% 0%,rgba(57,211,83,.12),transparent 35%),#080a09;display:grid;place-items:center;padding:20px;overflow:auto}
+    .login-box{width:min(430px,100%);background:#101311;border:1px solid #26302a;border-radius:20px;padding:34px;box-shadow:0 25px 80px rgba(0,0,0,.55);text-align:center}
+    .login-logo{width:58px;height:58px;border:2px solid var(--green);border-radius:14px;display:grid;place-items:center;margin:0 auto 20px;font-size:26px;font-weight:900}
+    .login-logo span{color:var(--green)}
+    .login-box h1{font-size:30px;line-height:1.1;letter-spacing:-1px;margin:5px 0 10px}
+    .login-box p{color:var(--muted);font-size:14px;margin-bottom:24px}
+    .social-login{width:100%;height:48px;border-radius:9px;margin:8px 0;border:1px solid var(--line);background:#171b18;color:white;font-weight:700;cursor:pointer;display:flex;align-items:center;justify-content:center;gap:12px;font-size:14px}
+    .social-login span{font-size:19px;font-weight:900}
+    .social-login.google span{color:#fff}
+    .social-login.facebook span{color:#4f8cff}
+    .divider{display:flex;align-items:center;gap:12px;color:#667069;font-size:11px;margin:20px 0}
+    .divider:before,.divider:after{content:"";height:1px;background:var(--line);flex:1}
+    .login-input{width:100%;height:48px;background:#0b0e0c;border:1px solid var(--line);color:white;padding:0 14px;border-radius:9px;outline:none;margin-bottom:10px}
+    .login-input:focus{border-color:var(--green)}
+    .login-btn{width:100%;cursor:pointer}
+    .login-box small{display:block;color:#69716c;font-size:10px;line-height:1.5;margin-top:17px}
+    .hidden{display:none!important}
+
+    @media(max-width:850px){
+      .nav-links{display:none;position:absolute;top:74px;left:0;right:0;background:#0a0d0b;padding:20px;flex-direction:column;gap:16px;border-bottom:1px solid var(--line)}
+      .nav-links.open{display:flex}.menu{display:block}
+      .hero-grid,.about-grid,.contact{grid-template-columns:1fr}
+      .skills{grid-template-columns:repeat(2,1fr)}
+      .portfolio{grid-template-columns:repeat(2,1fr)}
+      .services{grid-template-columns:repeat(2,1fr)}
+    }
+    @media(max-width:520px){
+      section{padding:70px 0}.skills,.portfolio,.services{grid-template-columns:1fr}
+      .visual{min-height:350px}.facts{grid-template-columns:1fr}
+      h1{letter-spacing:-2px}.quote p{font-size:22px}
+    }
+  </style>
+</head>
+<body class="locked">
+
+<div id="loginScreen" class="login-screen">
+  <div class="login-box">
+    <div class="login-logo">S<span>S</span></div>
+    <div class="eyebrow">PRIVATE PORTFOLIO</div>
+    <h1>Welcome to Suleman's Portfolio</h1>
+    <p>Sign in to view my graphic design work.</p>
+
+    <button class="social-login google" onclick="demoLogin('Google')">
+      <span>G</span> Continue with Google
+    </button>
+    <button class="social-login facebook" onclick="demoLogin('Facebook')">
+      <span>f</span> Continue with Facebook
+    </button>
+
+    <div class="divider"><span>OR</span></div>
+
+    <input id="loginContact" class="login-input" type="text" placeholder="Email address or phone number">
+    <button class="btn primary login-btn" onclick="emailPhoneLogin()">Continue</button>
+
+    <small>Demo login screen — real Google/Facebook authentication requires OAuth/backend setup.</small>
+  </div>
+</div>
+
+<header>
+  <div class="container">
+    <nav>
+      <a class="logo" href="#home">SULEMAN <span>SHAHZAD</span></a>
+      <button class="menu" id="menu">☰</button>
+      <ul class="nav-links" id="navLinks">
+        <li><a href="#home">Home</a></li><li><a href="#about">About</a></li>
+        <li><a href="#skills">Skills</a></li><li><a href="#portfolio">Portfolio</a></li>
+        <li><a href="#services">Services</a></li><li><a href="#contact">Contact</a></li>
+      </ul>
+    </nav>
+  </div>
+</header>
+
+<main>
+<section class="hero" id="home">
+  <div class="container hero-grid">
+    <div>
+      <div class="eyebrow">Graphic Designer</div>
+      <h1>Suleman<br><span>Shahzad</span></h1>
+      <div class="tagline">Designing ideas. Creating impact.</div>
+      <p>I create clean, modern and eye-catching designs that help brands look professional and stand out.</p>
+      <div class="buttons">
+        <a class="btn primary" href="#portfolio">View My Work</a>
+        <a class="btn secondary" href="#contact">Contact Me</a>
+      </div>
+    </div>
+    <div class="visual">
+      <div class="visual-card">
+        <div class="mark">S</div>
+        <h3>Creative<br>Graphic Design</h3>
+        <small>Social Media • Branding • Posters • Thumbnails</small>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="about">
+  <div class="container about-grid">
+    <div class="about-box"><div class="initial">S</div></div>
+    <div class="about-text">
+      <div class="eyebrow">About Me</div>
+      <h3>I'm Suleman Shahzad</h3>
+      <p>I'm a passionate graphic designer who enjoys turning ideas into visual designs. I focus on clean layouts, strong typography and creative visuals that communicate clearly.</p>
+      <div class="facts">
+        <div class="fact"><b>Name</b>Suleman Shahzad</div>
+        <div class="fact"><b>Specialization</b>Graphic Designing</div>
+        <div class="fact"><b>Tools</b>Photoshop & Illustrator</div>
+        <div class="fact"><b>Work</b>Freelance / Projects</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="skills">
+  <div class="container">
+    <div class="section-head"><div class="eyebrow">My Skills</div><h2>What I Do Best</h2></div>
+    <div class="skills">
+      <article class="skill"><div class="icon">Ps</div><h3>Adobe Photoshop</h3><p>Photo editing, compositions and professional social media creatives.</p></article>
+      <article class="skill"><div class="icon">Ai</div><h3>Adobe Illustrator</h3><p>Logo design, vector artwork and clean brand graphics.</p></article>
+      <article class="skill"><div class="icon">▣</div><h3>Social Media Design</h3><p>Eye-catching posts, ads, banners and campaign creatives.</p></article>
+      <article class="skill"><div class="icon">◆</div><h3>Logo Design</h3><p>Simple, memorable and professional logo concepts.</p></article>
+      <article class="skill"><div class="icon">▤</div><h3>Poster Design</h3><p>Promotional posters, flyers and event graphics.</p></article>
+      <article class="skill"><div class="icon">▶</div><h3>Thumbnail Design</h3><p>High-impact YouTube thumbnails designed to attract attention.</p></article>
+    </div>
+  </div>
+</section>
+
+<section id="portfolio">
+  <div class="container">
+    <div class="section-head"><div class="eyebrow">My Portfolio</div><h2>Selected Work</h2></div>
+    <div class="portfolio">
+      <article class="project"><div class="project-content"><small>SOCIAL MEDIA</small><h3>Independence Day</h3></div></article>
+      <article class="project"><div class="project-content"><small>ADVERTISEMENT</small><h3>Food Campaign</h3></div></article>
+      <article class="project"><div class="project-content"><small>BRANDING</small><h3>Digital Agency</h3></div></article>
+      <article class="project"><div class="project-content"><small>POSTER</small><h3>Modern Promotion</h3></div></article>
+      <article class="project"><div class="project-content"><small>LOGO DESIGN</small><h3>Brand Identity</h3></div></article>
+      <article class="project"><div class="project-content"><small>THUMBNAIL</small><h3>YouTube Growth</h3></div></article>
+    </div>
+    <p style="text-align:center;color:var(--muted);margin-top:20px">Replace these demo cards with your real designs.</p>
+  </div>
+</section>
+
+<div class="quote"><p>Good design is not just what it looks like — <span>it's how it communicates.</span></p></div>
+
+<section id="services">
+  <div class="container">
+    <div class="section-head"><div class="eyebrow">My Services</div><h2>How I Can Help</h2></div>
+    <div class="services">
+      <article class="service"><div class="icon">▣</div><h3>Social Media Design</h3><p>Professional posts and ads for social platforms.</p></article>
+      <article class="service"><div class="icon">◆</div><h3>Logo Design</h3><p>Clean logos built around your brand identity.</p></article>
+      <article class="service"><div class="icon">✦</div><h3>Branding</h3><p>Visual identity elements for a consistent brand.</p></article>
+      <article class="service"><div class="icon">▶</div><h3>Thumbnail Design</h3><p>Attention-grabbing thumbnails for YouTube creators.</p></article>
+    </div>
+  </div>
+</section>
+
+<section id="contact">
+  <div class="container">
+    <div class="section-head"><div class="eyebrow">Contact Me</div><h2>Let's Work Together</h2></div>
+    <div class="contact">
+      <div class="contact-info">
+        <p>Have a design project in mind? Send me a message and let's create something professional together.</p>
+        <div class="contact-item"><b>Email</b>sulemanshahzad122@gmail.com</div>
+        <div class="contact-item"><b>WhatsApp</b>03330616587</div>
+        
+      </div>
+      <form onsubmit="sendMessage(event)">
+        <input type="text" id="name" placeholder="Your Name" required>
+        <input type="email" id="email" placeholder="Your Email" required>
+        <textarea id="message" placeholder="Tell me about your project..." required></textarea>
+        <button class="btn primary" type="submit">Send Message</button>
+      </form>
+    </div>
+  </div>
+</section>
+</main>
+
+<footer>
+  <div class="container footer-inner">
+    <span>© 2026 Suleman Shahzad. All rights reserved.</span>
+    <span>Graphic Designer</span>
+  </div>
+</footer>
+
+<script>
+
+  function openPortfolio(){
+    document.getElementById('loginScreen').classList.add('hidden');
+    document.body.classList.remove('locked');
+    window.scrollTo(0,0);
+  }
+  function demoLogin(provider){
+    alert('Demo: ' + provider + ' login selected. Real authentication needs OAuth/backend configuration.');
+    openPortfolio();
+  }
+  function emailPhoneLogin(){
+    const value=document.getElementById('loginContact').value.trim();
+    if(!value){ alert('Please enter your email address or phone number.'); return; }
+    openPortfolio();
+  }
+
+  const menu=document.getElementById('menu');
+  const links=document.getElementById('navLinks');
+  menu.addEventListener('click',()=>links.classList.toggle('open'));
+  document.querySelectorAll('.nav-links a').forEach(a=>a.addEventListener('click',()=>links.classList.remove('open')));
+  function sendMessage(e){
+    e.preventDefault();
+    const name=document.getElementById('name').value;
+    alert('Thanks, '+name+'! This demo form is ready to connect to your email or WhatsApp.');
+  }
+</script>
+</body>
+</html>
